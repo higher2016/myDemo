@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/higherli/app/common/client/CClient.java=UTF-8
+encoding//src/com/higherli/app/common/server/CServerHelper.java=UTF-8
+encoding//src/com/higherli/app/common/server/ICRemote.java=UTF-8
+encoding//src/com/higherli/app/server/AppServer.java=UTF-8
+encoding//src/com/higherli/app/server/IService.java=UTF-8
