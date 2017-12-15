@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+  
+  <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{HH:mm:ss}][%-5p][%t]%C{1}.%M - %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="#LOGS_COMMON_PATH#debug#File_SEPARATOR#debug_#CUR_SERVICE_NAME#"/>
+    <param name="DatePattern" value="'_'yyyy-MM-dd'.log'"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{HH:mm:ss}][%t] %C{1}.%M - %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="DEBUG" />
+      <param name="LevelMax" value="DEBUG" />
+    </filter>
+  </appender>
+
+  <appender name="INFO" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="#LOGS_COMMON_PATH#info#File_SEPARATOR#info_#CUR_SERVICE_NAME#"/>
+    <param name="DatePattern" value="'_'yyyy-MM-dd'.log'"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{HH:mm:ss}][%t] %C{1}.%M - %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="INFO" />
+      <param name="LevelMax" value="INFO" />
+    </filter>
+  </appender>
+
+  <appender name="WARN" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="#LOGS_COMMON_PATH#warn#File_SEPARATOR#warn_#CUR_SERVICE_NAME#"/>
+    <param name="DatePattern" value="'_'yyyy-MM-dd'.log'"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{HH:mm:ss}][%t] %C{1}.%M - %m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="WARN" />
+      <!--<param name="LevelMax" value="WARN" />-->
+    </filter>
+  </appender>
+
+  <appender name="PROF" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="#LOGS_COMMON_PATH#prof#File_SEPARATOR#prof_#CUR_SERVICE_NAME#"/>
+    <param name="Append" value="true"/>
+    <param name="MaxBackupIndex" value="100"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}/%m%n"/>
+    </layout>
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="LevelMin" value="INFO" />
+    </filter>
+  </appender>
+
+  <category name="Monitor" additivity='false'>
+    <priority value="ALL"/>
+    <appender-ref ref="PROF"/>
+  </category>
+  
+  <category name="AppLogger" additivity='false'>
+    <priority value="ALL"/>
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="DEBUG"/>
+    <appender-ref ref="INFO"/>
+    <appender-ref ref="WARN"/>
+  </category>
+
+  <root>
+    <priority value="ALL"/>
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="DEBUG"/>
+    <appender-ref ref="INFO"/>
+    <appender-ref ref="WARN"/>
+  </root>
+  
+</log4j:configuration>

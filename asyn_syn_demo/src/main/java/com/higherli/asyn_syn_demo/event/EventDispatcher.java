@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+import com.higherli.asyn_syn_demo.AppLogger;
+
 /**
  * 事件分发器(事件产生之后调用dispatchEvent(E event))
  * 
@@ -89,7 +91,7 @@ public abstract class EventDispatcher<T extends Enum<T>, E extends Event<T>, P e
 				}
 				Class<?>[] parameterTypes = method.getParameterTypes();
 				if (parameterTypes == null || parameterTypes.length != 1 || parameterTypes[0] != eventClass) {
-					System.err.println(String.format("<%s> The parameter types of %s are wrong.", eventDispatcherName, methodDescription));
+					AppLogger.error(String.format("<%s> The parameter types of %s are wrong.", eventDispatcherName, methodDescription));
 					continue;
 				}
 				T eventType = (T) listenAnnotationClass.getMethod("eventType").invoke(listenAnnotation); // 获取元注解中的eventType
@@ -105,10 +107,10 @@ public abstract class EventDispatcher<T extends Enum<T>, E extends Event<T>, P e
 				eventType_EventListeners.put(eventType, eventListenerList.toArray(new EventListener[eventListenerList.size()]));
 				listenerNum++;
 			} catch (Throwable t) {
-				System.err.println(String.format("<%s> Make %s be a listener unsuccessfully.", eventDispatcherName, methodDescription));
+				AppLogger.error(String.format("<%s> Make %s be a listener unsuccessfully.", eventDispatcherName, methodDescription));
 			}
 			if (listenerNum <= 0) {
-				System.err.println(String.format("<%s> Listener method not found in class:%s.", eventDispatcherName, className));
+				AppLogger.error(String.format("<%s> Listener method not found in class:%s.", eventDispatcherName, className));
 			}
 		}
 	}

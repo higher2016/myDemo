@@ -33,13 +33,13 @@ public class TestSynEventDispatcher {
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		public void onUnknownEventHappen1(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method1:" + ue.name);
+			AppLogger.info("method1:" + ue.name);
 		}
 
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		public void onUnknownEventHappen0(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method0:" + ue.name);
+			AppLogger.info("method0:" + ue.name);
 		}
 	}
 
@@ -47,25 +47,25 @@ public class TestSynEventDispatcher {
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		static public void onUnknownEventHappen4(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method4:" + ue.name);
+			AppLogger.info("method4:" + ue.name);
 		}
 
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		public void onUnknownEventHappen2(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method2:" + ue.name);
+			AppLogger.info("method2:" + ue.name);
 		}
 
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		public void onUnknownEventHappen3(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method3:" + ue.name);
+			AppLogger.info("method3:" + ue.name);
 		}
 
 		@ListenSynEvent(eventType = SynEventType.UNKNOWN)
 		static public void onUnknownEventHappen5(final SynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method5:" + ue.name);
+			AppLogger.info("method5:" + ue.name);
 		}
 	}
 }

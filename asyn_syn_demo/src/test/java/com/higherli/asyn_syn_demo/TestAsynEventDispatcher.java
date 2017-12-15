@@ -40,13 +40,13 @@ public class TestAsynEventDispatcher {
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		public void onUnknownEventHappen1(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method1:" + ue.name);
+			AppLogger.info("method1:" + ue.name);
 		}
 
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		public void onUnknownEventHappen0(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method0:" + ue.name);
+			AppLogger.info("method0:" + ue.name);
 		}
 	}
 
@@ -54,25 +54,25 @@ public class TestAsynEventDispatcher {
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		static public void onUnknownEventHappen4(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method4:" + ue.name);
+			AppLogger.info("method4:" + ue.name);
 		}
 
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		public void onUnknownEventHappen2(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method2:" + ue.name);
+			AppLogger.info("method2:" + ue.name);
 		}
 
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		public void onUnknownEventHappen3(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method3:" + ue.name);
+			AppLogger.info("method3:" + ue.name);
 		}
 
 		@ListenAsynEvent(eventType = AsynEventType.UNKNOWN)
 		static public void onUnknownEventHappen5(final AsynEvent event) {
 			UnknownEvent ue = (UnknownEvent) event;
-			System.out.println("method5:" + ue.name);
+			AppLogger.info("method5:" + ue.name);
 		}
 	}
 }
